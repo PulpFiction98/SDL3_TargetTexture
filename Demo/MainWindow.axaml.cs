@@ -25,26 +25,18 @@ namespace Demo
             SDL.SetRenderTarget(render, nint.Zero);
             SDL.RenderTexture(render, targetTexture, nint.Zero, nint.Zero);
             SDL.SetRenderTarget(render, targetTexture);
-            SDL.RenderPresent(render);
-       
-
-            Console.WriteLine("Draw 1 Img");
-           // Thread.Sleep(5);
-
+            SDL.RenderPresent(render);      
+            Console.WriteLine("Draw 1 Img");  
             var m_pTexture = SDL.CreateTexture(render, SDL.PixelFormat.BGRX8888, SDL.TextureAccess.Streaming, ImgFrame->width, ImgFrame->height);
             SDL.UpdateTexture(m_pTexture, nint.Zero, (nint)ImgFrame->data[0], ImgFrame->linesize[0]);
             SDL.RenderTexture(render, m_pTexture, nint.Zero, new SDL.FRect() { X = 0, Y = 0, W = (int)dis.Bounds.Width / 2, H = (int)dis.Bounds.Height / 2 });
             SDL.SetRenderTarget(render, nint.Zero);
             SDL.RenderTexture(render, targetTexture, nint.Zero, nint.Zero);
             SDL.SetRenderTarget(render, targetTexture);
-            SDL.RenderPresent(render);
-            //SDL.SetRenderDrawColor(render, 0,255 , 0, 255);
-            //SDL.RenderClear(render);
-           
+            SDL.RenderPresent(render);          
             SDL.DestroyTexture(m_pTexture);
 
-            Console.WriteLine("Draw 2 Img");
-       //     Thread.Sleep(5);
+            Console.WriteLine("Draw 2 Img");  
             m_pTexture = SDL.CreateTexture(render, SDL.PixelFormat.BGRX8888, SDL.TextureAccess.Streaming, ImgFrame->width, ImgFrame->height);
             SDL.UpdateTexture(m_pTexture, nint.Zero, (nint)ImgFrame->data[0], ImgFrame->linesize[0]);
             SDL.RenderTexture(render, m_pTexture, nint.Zero, new SDL.FRect() { X = (int)dis.Bounds.Width / 2, Y = 0, W = (int)dis.Bounds.Width / 2, H = (int)dis.Bounds.Height / 2 });
@@ -52,14 +44,9 @@ namespace Demo
             SDL.RenderTexture(render, targetTexture, nint.Zero, nint.Zero);
             SDL.SetRenderTarget(render, targetTexture);
             SDL.RenderPresent(render);
-            //SDL.SetRenderDrawColor(render, 0, 255, 0, 255);
-
-            //SDL.RenderClear(render);
-   
             SDL.DestroyTexture(m_pTexture);
 
             Console.WriteLine("Draw 3 Img");
-        //    Thread.Sleep(5);
             m_pTexture = SDL.CreateTexture(render, SDL.PixelFormat.BGRX8888, SDL.TextureAccess.Streaming, ImgFrame->width, ImgFrame->height);
             SDL.UpdateTexture(m_pTexture, nint.Zero, (nint)ImgFrame->data[0], ImgFrame->linesize[0]);
             SDL.RenderTexture(render, m_pTexture, nint.Zero, new SDL.FRect() { X = 0, Y = (int)dis.Bounds.Height / 2, W = (int)dis.Bounds.Width / 2, H = (int)dis.Bounds.Height / 2 });
@@ -67,13 +54,9 @@ namespace Demo
             SDL.RenderTexture(render, targetTexture, nint.Zero, nint.Zero);
             SDL.SetRenderTarget(render, targetTexture);
             SDL.RenderPresent(render);
-            //SDL.SetRenderDrawColor(render, 0, 255, 0, 255);
-            //SDL.RenderClear(render);
-      
             SDL.DestroyTexture(m_pTexture);
 
             Console.WriteLine("Draw 4 Img");
-        //    Thread.Sleep(5);
             m_pTexture = SDL.CreateTexture(render, SDL.PixelFormat.BGRX8888, SDL.TextureAccess.Streaming, ImgFrame->width, ImgFrame->height);
             SDL.UpdateTexture(m_pTexture, nint.Zero, (nint)ImgFrame->data[0], ImgFrame->linesize[0]);
             SDL.RenderTexture(render, m_pTexture, nint.Zero, new SDL.FRect() { X = (int)dis.Bounds.Width / 2, Y = (int)dis.Bounds.Height / 2, W = (int)dis.Bounds.Width / 2, H = (int)dis.Bounds.Height / 2 });
@@ -81,9 +64,6 @@ namespace Demo
             SDL.RenderTexture(render, targetTexture, nint.Zero, nint.Zero);
             SDL.SetRenderTarget(render, targetTexture);
             SDL.RenderPresent(render);
-            //SDL.SetRenderDrawColor(render, 0, 255, 0, 255);
-            //SDL.RenderClear(render);
-     
             SDL.DestroyTexture(m_pTexture);
 
             
@@ -140,8 +120,7 @@ namespace Demo
             uint prop = SDL.CreateProperties();
             SDL.SetPointerProperty(prop, SDL.Props.WindowCreateWin32HWNDPointer, dis.Handle);
             window = SDL.CreateWindowWithProperties(prop);
-            render = SDL.CreateRenderer(window, null);
-            SDL.SetRenderVSync(render, -1);
+            render = SDL.CreateRenderer(window, null);     
             targetTexture = SDL.CreateTexture(render, SDL.PixelFormat.BGRA8888, TextureAccess.Target, (int)dis.Bounds.Width, (int)dis.Bounds.Height);
             SDL.SetRenderTarget(render, targetTexture);
             InitImage();
